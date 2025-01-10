@@ -124,14 +124,14 @@ void Display1()
 {
 	if (DisplayMenu)
 	{
-		//glutDisplayFunc(GameIsOver);
+		// glutDisplayFunc(GameIsOver);
 		glutDisplayFunc(Menu);
-		//glutIdleFunc(Menu);
+		// glutIdleFunc(Menu);
 	}
 	else if (DisplayTaxiMenu)
 	{
 		glutDisplayFunc(TaxiSelection);
-		//glutIdleFunc(TaxiSelection);
+		// glutIdleFunc(TaxiSelection);
 	}
 	else if (TakePlayerName)
 	{
@@ -144,14 +144,14 @@ void Display1()
 	else if (MainGame)
 	{
 		glutDisplayFunc(GameDisplay);
-		//glutIdleFunc(GameDisplay);
+		// glutIdleFunc(GameDisplay);
 	}
 }
 // Function for taking name of user.
 void PlayerName()
 {
 	glClearColor(0.8 /*Red Component*/, 0.8, /*Green Component*/ 0.8 /*Blue Component*/, 0 /*Alpha component*/);
-	glClear(GL_COLOR_BUFFER_BIT); //Update the colors
+	glClear(GL_COLOR_BUFFER_BIT); // Update the colors
 	DrawString(440, 750, "Please Enter Your Name", colors[BLUE]);
 	DrawString(440, 550, UserName, colors[RED]);
 	glutSwapBuffers();
@@ -159,7 +159,7 @@ void PlayerName()
 void GameIsOver()
 {
 	glClearColor(0.8 /*Red Component*/, 0.8, /*Green Component*/ 0.8 /*Blue Component*/, 0 /*Alpha component*/);
-	glClear(GL_COLOR_BUFFER_BIT); //Update the colors
+	glClear(GL_COLOR_BUFFER_BIT); // Update the colors
 	DrawString(440, 550, "Game Over", colors[DARK_BLUE]);
 	DrawString(440, 450, "Your Score is ", colors[DARK_BLUE]);
 	string displayscore = Num2Str(score);
@@ -197,7 +197,7 @@ void DrawHorizontalObstacles(int obsx, int obsy, int LimitingValue, int &counter
 		ObstacleArray[counter][1] = obsy;
 	}
 }
-//This function draws vertical obstacles at a gap of 50 pixels.
+// This function draws vertical obstacles at a gap of 50 pixels.
 void DrawVerticalObstacles(int obsx, int obsy, int LimitingValue, int &counter)
 {
 	// These are the co-ordinates where obstacles are being placed and are being stored in a 2-D array. 1st column contains the x-coord whereas
@@ -211,7 +211,7 @@ void DrawVerticalObstacles(int obsx, int obsy, int LimitingValue, int &counter)
 }
 // This function takes co-ordinates x and y as parameters and then draws a horizontal car at that location.
 void DrawHorizontalCar(int x, int y, float *color)
-{ //Lower tyres
+{ // Lower tyres
 	DrawCircle(x + 40, y, 7.5, colors[BLACK]);
 	DrawCircle(x + 40, y + 25, 8.5, colors[BLACK]);
 	// Upper tyres
@@ -221,7 +221,7 @@ void DrawHorizontalCar(int x, int y, float *color)
 }
 // This function takes co-ordinates x and y as parameters and then draws a vertical car at that location.
 void DrawVerticalCar(int x, int y, float *color)
-{ //Lower tyres
+{ // Lower tyres
 	DrawCircle(x + 5, y, 7.5, colors[BLACK]);
 	DrawCircle(x + 25, y, 7.5, colors[BLACK]);
 	// Upper tyres
@@ -341,7 +341,7 @@ void MoveVerticalNpcs(int &Npc1Y, int &Npc2Y, int &Npc3Y, int &Npc4X)
 void Menu()
 {
 	glClearColor(0 /*Red Component*/, 0, /*Green Component*/ 0 /*Blue Component*/, 0 /*Alpha component*/);
-	glClear(GL_COLOR_BUFFER_BIT); //Update the colors
+	glClear(GL_COLOR_BUFFER_BIT); // Update the colors
 	DrawString(440, 750, "Welcome to Rush Hour", colors[BLUE]);
 	if (MenuCounter == 0)
 		DrawRectangle(450, 475, 100, 30, colors[PINK]);
@@ -357,7 +357,7 @@ void TaxiSelection()
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT); // Clean the screen and the depth buffer
 	glLoadIdentity();									// Reset The Projection Matrix
 	glClearColor(0 /*Red Component*/, 0, /*Green Component*/ 0 /*Blue Component*/, 0 /*Alpha component*/);
-	glClear(GL_COLOR_BUFFER_BIT); //Update the colors
+	glClear(GL_COLOR_BUFFER_BIT); // Update the colors
 	DrawString(440, 750, "Please select your taxi color", colors[BLUE]);
 	if (TaxiMenuCounter == 0)
 		DrawRectangle(450, 475, 100, 30, colors[PINK]);
@@ -365,7 +365,7 @@ void TaxiSelection()
 		DrawRectangle(455, 435, 100, 30, colors[PINK]);
 	DrawString(460, 480, "Red Taxi", colors[RED]);
 	DrawString(460, 440, "Yellow Taxi", colors[RED]);
-	//glutPostRedisplay();
+	// glutPostRedisplay();
 	glutSwapBuffers();
 	glutPostRedisplay();
 }
@@ -434,8 +434,8 @@ void GameDisplay() /**/
 {
 	// Note that r, g and b values must be in the range [0,1] where 0 means dim rid and 1 means pure red and so on.
 	glClearColor(1 /*Red Component*/, 1, /*Green Component*/ 1 /*Blue Component*/, 0 /*Alpha component*/);
-	glClear(GL_COLOR_BUFFER_BIT); //Update the colors
-	//Display Score
+	glClear(GL_COLOR_BUFFER_BIT); // Update the colors
+	// Display Score
 	const string display = "Score = ";
 	string points = Num2Str(score);
 	string final = display + points;
@@ -445,7 +445,7 @@ void GameDisplay() /**/
 	const string colon = " : ";
 	string TIMEDISPLAY = MIN + colon + SEC;
 	DrawString(850, 825, TIMEDISPLAY, colors[BLUE_VIOLET]);
-	//DrawLine(int x1, int y1, int x2, int y2, int lwidth, float *color)
+	// DrawLine(int x1, int y1, int x2, int y2, int lwidth, float *color)
 	int Xaxis = 10, InitialYAxis = 820, EndYAxis = -840;
 	for (int i = 1; i <= 21; i++)
 	{
@@ -505,27 +505,27 @@ void GameDisplay() /**/
 		}
 	}
 	DrawPassenger(850, 605, PassengerCounter);
-	 if (DisplayPassenger[1])
+	if (DisplayPassenger[1])
 		DrawPassenger(390, 400, PassengerCounter);
-		else
-		{
-			static int index = GetRandInRange(0,4);
-			DrawCircle(LocationArray[index][0],LocationArray[index][1],20,colors[GREEN]);
-		}
+	else
+	{
+		static int index = GetRandInRange(0, 4);
+		DrawCircle(LocationArray[index][0], LocationArray[index][1], 20, colors[GREEN]);
+	}
 	if (DisplayPassenger[2])
 		DrawPassenger(165, 355, PassengerCounter);
-		else
-		{
-			static int index = GetRandInRange(0,4);
-			DrawCircle(LocationArray[index][0],LocationArray[index][1],20,colors[GREEN]);
-		}
+	else
+	{
+		static int index = GetRandInRange(0, 4);
+		DrawCircle(LocationArray[index][0], LocationArray[index][1], 20, colors[GREEN]);
+	}
 	if (DisplayPassenger[3])
 		DrawPassenger(920, 305, PassengerCounter);
-		else
-		{
-			static int index = GetRandInRange(0,4);
-			DrawCircle(LocationArray[index][0],LocationArray[index][1],20,colors[GREEN]);
-		} 
+	else
+	{
+		static int index = GetRandInRange(0, 4);
+		DrawCircle(LocationArray[index][0], LocationArray[index][1], 20, colors[GREEN]);
+	}
 	PassengerLimiter = PassengerCounter;
 	unsigned int X = 0, Y = 0;
 	if (NearPassenger[0] || NearPassenger[1] || NearPassenger[2] || NearPassenger[3])
@@ -592,7 +592,7 @@ void NonPrintableKeys(int key, int x, int y)
 			{
 				if (xI == X + 40 && yI == Y)
 				{
-					NearPassenger[m] = true; //Near Passenger Check
+					NearPassenger[m] = true; // Near Passenger Check
 					break;
 				}
 			}
@@ -611,14 +611,14 @@ void NonPrintableKeys(int key, int x, int y)
 			}
 		}
 		/* for (int X = 915, Y = 145 - 45; Y <= 145 + 50; Y++) */
-		 for (int X = LocationArray[IndexComparison][0], Y = LocationArray[IndexComparison][1] - 45; Y <= LocationArray[IndexComparison][1] + 50; Y++)
+		for (int X = LocationArray[IndexComparison][0], Y = LocationArray[IndexComparison][1] - 45; Y <= LocationArray[IndexComparison][1] + 50; Y++)
 		{
 			if (xI == X + 15 && yI == Y)
 			{
 				AtLocation = true; // Check for when passenger reaches location
 				break;
 			}
-		} 
+		}
 		if (!Collisioncheck && !BoxCollision && !TreeCollision)
 		{
 			if (YellowTaxi)
@@ -907,7 +907,7 @@ void PrintableKeys(unsigned char key, int x, int y)
 		}
 		// exit the program when escape key is pressed.
 	}
-	if (key == ' ') //Key for placing the bomb
+	if (key == ' ') // Key for placing the bomb
 	{
 		if (AtLocation)
 			SpaceKeyPressed = true;
@@ -971,7 +971,7 @@ void PrintableKeys(unsigned char key, int x, int y)
 }
 void Timer(int m)
 {
-	//cout << xI << '\n'<< yI << '\n';
+	// cout << xI << '\n'<< yI << '\n';
 	if (MilliSecondsTimer == 60)
 	{
 		Secondstimer++;
@@ -984,16 +984,21 @@ void Timer(int m)
 	}
 	MilliSecondsTimer += 5;
 	// once again we tell the library to call our Timer function after next 1000/FPS
+	if (Minutestimer == 3 && score == 1000)
+	{
+		MainGame = false;
+		DisplayLeaderboard = true;
+	}
 	glutTimerFunc(100, Timer, 0);
 }
 void MousePressedAndMoved(int x, int y)
 {
-	//cout << x << " " << y << endl;
+	// cout << x << " " << y << endl;
 	glutPostRedisplay();
 }
 void MouseMoved(int x, int y)
 {
-	//cout << x << " " << y << endl;
+	// cout << x << " " << y << endl;
 	glutPostRedisplay();
 }
 void MouseClicked(int button, int state, int x, int y)
