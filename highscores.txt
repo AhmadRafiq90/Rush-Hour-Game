@@ -1,0 +1,10 @@
+Ahmed 10
+Ali 20
+Ahmad 30
+Rafay 40
+Muhammad 50
+Osama 60
+Dawood 70
+Muhaddis 80
+Saad 90
+YoYo 100
