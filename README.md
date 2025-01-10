@@ -1,6 +1,3 @@
-Here’s a concise README for your project:
-
----
 
 # Rush Hour Game
 
